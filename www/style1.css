@@ -1,11 +1,14 @@
-.box1 {
+body {
+  background: linear-gradient(45deg, #00aaff, #00ffaa); /* 冷色调渐变色 */
+  margin: 0; /* 去除默认页面外边距 */
+  padding: 0; /* 去除默认页面内边距 */
   display: flex;
-  font-family: "Your Font Name", sans-serif;
-  align-items: center; 
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  border-radius: 10px; 
-  background-color: #71b7e6;
-  border: 2px solid #000;
-  margin: 0 200px;
+}
+#container {
+  position: relative;
+  width: 80%; /* 使用百分比来设置容器的宽度 */
+  height: 80vh; /* 使用视口高度的百分比来设置容器的高度 */
+  border: 1px solid #000; /* 添加边框以可视化容器 */
 }

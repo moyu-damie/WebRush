@@ -1,18 +1,47 @@
-function sendData() {
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
-  
-    // 显示加载界面
-    document.getElementById('loading').style.display = 'flex';
-  
-    // 模拟发送数据到后端的过程
-    setTimeout(function() {
-      // 这里可以使用 AJAX 或其他方式将数据发送到后端
-      console.log('用户名：', username);
-      console.log('密码：', password);
-  
-      // 隐藏加载界面
-      document.getElementById('loading').style.display = 'none';
-    }, 2000); // 模拟2秒的加载过程
-  }
-  
+// script.js
+document.addEventListener("DOMContentLoaded", function() {
+    var container = document.getElementById("container");
+
+    for (var i = 0; i < 100; i++) {
+        var randomX = Math.random() * (container.clientWidth-20); // 考虑文本宽度
+        var randomY = Math.random() * (container.clientHeight-20); // 考虑文本高度
+
+        var text = document.createElement("div");
+        if(i==0){
+            text.textContent = "😫";
+        }
+        else{
+            text.textContent = "🙂";
+        }
+        
+        text.addEventListener("click", function(event) {
+            if (event.target.textContent === "😫") {
+                alert("你点击了😫，“哼，看来还没老糊涂嘛”");
+            } else {
+                alert("你点击了🙂，“杂鱼杂鱼，果然看不出本小姐的伪装呢”");
+                window.location.href = "next.html";
+            }
+        });
+
+        text.style.position = "absolute";
+        text.style.top = randomY + "px";
+        text.style.left = randomX + "px";
+
+        container.appendChild(text);
+    }
+});
+
+// script.js
+function adjustContainerSize() {
+    var container = document.getElementById("container");
+    var windowWidth = window.innerWidth;
+    var windowHeight = window.innerHeight;
+
+    // 设置容器的宽度和高度
+    container.style.width = (windowWidth * 0.8) + "px"; // 80% 的窗口宽度
+    container.style.height = (windowHeight * 0.8) + "px"; // 80% 的窗口高度
+}
+
+// 页面加载时和窗口大小变化时调整容器大小
+window.addEventListener("load", adjustContainerSize);
+window.addEventListener("resize", adjustContainerSize);

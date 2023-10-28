@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignIn</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            height: 100%;
+        }
+        body {
+            height: 100%;
+        }
+        .container {
+            height: 100%;
+            background-image: linear-gradient(to right, #fbc2eb, #a6c1ee);
+        }
+        .login-wrapper {
+            background-color: #fff;
+            width: 358px;
+            height: 588px;
+            border-radius: 15px;
+            padding: 0 50px;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .header {
+            font-size: 38px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 200px;
+        }
+        .input-item {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 0;
+            padding: 10px;
+            border-bottom: 1px solid rgb(128, 125, 125);
+            font-size: 15px;
+            outline: none;
+        }
+        .input-item:placeholder {
+            text-transform: uppercase;
+        }
+        .btn {
+            font-family: "Script MT Bold", serif;
+            font-size: 30px;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            margin-top: 40px;
+            background-image: linear-gradient(to right, #a6c1ee, #fbc2eb);
+            color: #fff;
+            outline: none;
+        }
+        .msg {
+            text-align: center;
+            line-height: 88px;
+        }
+        .signin-btn{
+            text-align: center;
+            font-size: 25px;
+            padding: 10px;
+            width: 100%;
+            margin-top: 40px;
+            outline: none;
+        }
+        a {
+            text-decoration-line: none;
+            color: #abc1ee;
+        }
+    </style>
+    <script>
+        function sendData() {
+            var username = document.getElementById('username');
+            var userid = document.getElementById('userid');
+            var userpassword = document.getElementById('password');
+
+            const url = 'http://127.0.0.1:5000/login';
+            const data = { 'name': username.value, 'id': userid.value ,'password': userpassword.value };
+            console.log(JSON.stringify(data));
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log(result);
+                // 跳转到 main.html 页面
+                if(result.message === 'Login successful'){
+                    window.location.href = "main.html";
+                }
+                else{
+                    alert("id或密码错误")
+                }
+            })
+            .catch(error => console.error(error));
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="login-wrapper">
+            <div class="header">Login</div>
+            <div class="form-wrapper">
+                <input type="text" id="username" placeholder="username" class="input-item">
+                <input type="text" id="userid" placeholder="userid" class="input-item">
+                <input type="password" id="password" placeholder="password" class="input-item">
+                <div class="btn" onclick="sendData()">Login</div>
+            </div>
+            <div class="msg">
+                Don't have account?
+                <a href="signup.html">Sign up</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
