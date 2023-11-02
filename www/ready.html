@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignIn</title>
+    <title>Ready</title>
     <style>
         * {
             margin: 0;
@@ -72,7 +72,6 @@
             width: 100%;
             margin-top: 40px;
             outline: none;
-            user-select: none;
         }
         a {
             text-decoration-line: none;
@@ -83,16 +82,14 @@
 <body>
     <div class="container">
         <div class="login-wrapper">
-            <div class="header">Login</div>
+            <div class="header">Ready?</div>
             <div class="form-wrapper">
-                <input type="text" id="username" placeholder="username" class="input-item">
-                <input type="text" id="userid" placeholder="userid" class="input-item">
-                <input type="password" id="password" placeholder="password" class="input-item">
-                <div class="btn" onclick="sendData()">Login</div>
+                <div class="btn" onclick="turntogame()">I'm ready</div>
+                <div class="btn" onclick="turntolist()">Look the list</div>
             </div>
-            <div class="msg">Don't have account?<a href="signup.html">Sign up</a></div>
         </div>
     </div>
+    
     <script src="core.js"></script>
 </body>
 </html>

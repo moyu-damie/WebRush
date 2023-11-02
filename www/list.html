@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>scorelist</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        height: 100%;
+      }
+      body {
+        height: 100%;
+      }
+      .listcontainer {
+        height: 200%;
+        background-image: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      }
+      .login-wrapper {
+        background-color: #fff;
+        width: 500px;
+        height: 1000px;
+        border-radius: 15px;
+        padding: 0 50px;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .header {
+        font-size: 38px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 200px;
+      }
+      .input-item {
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+        border: 0;
+        padding: 10px;
+        border-bottom: 1px solid rgb(128, 125, 125);
+        font-size: 15px;
+        outline: none;
+      }
+      .input-item:placeholder {
+        text-transform: uppercase;
+      }
+      .btn {
+        font-family: "Script MT Bold", serif;
+        font-size: 30px;
+        text-align: center;
+        transform: translateX(40px);
+        padding: 10px;
+        width: 80%;
+        margin-top: 40px;
+        background-image: linear-gradient(to right, #a6c1ee, #fbc2eb);
+        color: #fff;
+        outline: none;
+        user-select: none;
+      }
+      .signin-btn {
+        text-align: center;
+        font-size: 25px;
+        padding: 10px;
+        width: 100%;
+        margin-top: 40px;
+        outline: none;
+      }
+      a {
+        text-decoration-line: none;
+        color: #abc1ee;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        transform: translateX(-40px);
+        transform: translateY(20px);
+      }
+
+      th,
+      td {
+        padding: 4px;
+        font-size: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="listcontainer">
+      <div class="login-wrapper">
+        <div class="form-wrapper">
+          <div class="header"> list </div>
+
+          <table>
+            <tr>
+              <td>
+                <input type="text" id="username" placeholder="username" class="input-item" />
+              </td>
+              <td>
+                <input type="text" id="userid" placeholder="userid" class="input-item" />
+              </td>
+              <td>
+                <input type="text" id="level0" placeholder="level0" class="input-item" />
+              </td>
+              <td>
+                <input type="text" id="level1" placeholder="level1" class="input-item" />
+              </td>
+              <td>
+                <input type="text" id="level2" placeholder="level2" class="input-item" />
+              </td>
+              <td>
+                <input type="text" id="level3" placeholder="level3" class="input-item" />
+              </td>
+              <td><button onclick="set_score()">上传</button></td>
+            </tr>
+          </table>
+
+          <div class="btn" onclick="getdata()">refresh</div>
+          <table id="thelist">
+            <thead>
+              <tr>
+                <th>rank</th>
+                <th>name</th>
+                <th>id</th>
+                <th>level0</th>
+                <th>level1</th>
+                <th>level2</th>
+                <th>level3</th>
+                <th>sumscore</th>
+                <th>delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 这里将通过 JavaScript 动态添加表格行 -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="core.js"></script>
+  </body>
+</html>

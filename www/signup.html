@@ -15,11 +15,11 @@
         body {
             height: 100%;
         }
-        .container {
+        .containers {
             height: 100%;
             background-image: linear-gradient(to right, #fbc2eb, #a6c1ee);
         }
-        .login-wrapper {
+        .signup-wrapper {
             background-color: #fff;
             width: 358px;
             height: 588px;
@@ -50,16 +50,27 @@
             text-transform: uppercase;
         }
         .btn {
+            font-family: "Script MT Bold", serif;
+            font-size: 30px;
             text-align: center;
             padding: 10px;
             width: 100%;
             margin-top: 40px;
             background-image: linear-gradient(to right, #a6c1ee, #fbc2eb);
             color: #fff;
+            outline: none;
         }
         .msg {
             text-align: center;
             line-height: 88px;
+        }
+        .signup-btn{
+            text-align: center;
+            font-size: 25px;
+            padding: 10px;
+            width: 100%;
+            margin-top: 40px;
+            outline: none;
         }
         a {
             text-decoration-line: none;
@@ -68,16 +79,17 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="login-wrapper">
+    <div class="containers">
+        <div class="signup-wrapper">
             <div class="header">sign up</div>
             <div class="form-wrapper">
-                <input type="text" name="username" placeholder="username" class="input-item">
-                <input type="text" name="userid" placeholder="userid" class="input-item">
-                <input type="password" name="password" placeholder="password" class="input-item">
-                <div class="btn">Signup & Login</div>
+                <input type="text" id="username" placeholder="username" class="input-item">
+                <input type="text" id="userid" placeholder="userid" class="input-item">
+                <input type="password" id="password" placeholder="password" class="input-item">
+                <div class="btn" onclick="createuser()">Signup & Login</div>
             </div>
         </div>
     </div>
+    <script src="core.js"></script>
 </body>
 </html>
